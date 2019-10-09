@@ -1,0 +1,319 @@
+
+body {
+    background-image: linear-gradient(rgb(218, 218, 218), rgb(224, 224, 224));
+    background-size: cover;
+    background-position: center;
+    font-family: Lato;
+    font-weight: 300;
+    display: grid;
+    grid-auto-columns: 100%;
+    grid-template-rows: 667px;
+    height: 100vh;
+    
+    margin: 0;
+    padding: 0;
+    align-content: center;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px 20px;
+    justify-self: center;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.player-0-panel,
+.player-1-panel {
+    height: 100%;
+    padding: 40px;
+    display: grid;
+    grid-template-rows: 20% 50% 30%;
+    justify-items: stretch;
+    align-items: center;
+}
+
+.player-name {
+    height: 100%;
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 100;
+    vertical-align: middle;
+    
+
+
+}
+
+
+.player-score {
+    text-align: center;
+    font-size: 80px;
+    font-weight: 100;
+    color: rgb(45, 103, 121);
+    padding: 10% 0
+
+}
+
+.active { background-color: #f7f7f7; }
+.active .player-name { font-weight: 300; }
+
+.active .player-name::after {
+    content: "\2022";
+    font-size: 47px;
+    color: rgb(45, 103, 121);
+    top: -7px;
+    right: 10px;
+    
+}
+
+.player-current-box {
+    background-color: rgb(45, 103, 121);
+    color: #fff;
+    text-align: center;
+    
+}
+
+.player-current-label {
+    text-transform: uppercase;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #222;
+}
+
+.player-current-score {
+    font-size: 40px;
+    padding-bottom:  10px;
+}
+
+.interface {
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr 1fr 1fr;
+    justify-items: center;
+    padding: 0 40px;
+
+}
+
+.dices {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-items: center;
+    align-items: center;
+    
+}
+
+button {
+ 
+    width: 200px;
+
+    color: #555;
+    background: none;
+    border: none;
+    font-family: Lato;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover { font-weight: 600; }
+button:hover i { margin-right: 20px; }
+
+button:focus {
+    outline: none;
+}
+
+i {
+    color: rgb(45, 103, 121);
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 32px;
+    line-height: 1;
+    vertical-align: text-top;
+    margin-top: -4px;
+    transition: margin 0.3s;
+}
+
+input { 
+
+    width: 100px;
+
+    top: 540px;
+    font-size: 18px;
+    font-family: 'Lato';
+    text-align: center;
+
+    width: 160px;
+    text-transform: uppercase;
+    padding: 0;
+}
+
+
+
+.dice1 {
+    width: 80%;
+
+
+
+
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+}
+
+.dice2 {
+    width: 80%;
+  
+
+
+
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+}
+
+.winner { background-color: #f7f7f7; }
+.winner .player-name { font-weight: 300; color: rgb(45, 103, 121); }
+
+
+
+
+/* TABLET MQ */
+
+@media screen and (max-width: 990px) {
+
+    .wrapper {
+        margin: 0px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        "player-0 player-1"
+        "interface interface"
+    }
+    .player-0-panel {
+        padding: 20px;
+        grid-area: player-0;
+    }
+    .player-1-panel {
+        padding: 20px;
+        grid-area: player-1;
+    }
+
+    .player-name {
+        height: 100%;
+        font-size: 30px;
+    }
+
+    .interface {
+        grid-area: interface;
+        padding: 0;
+        padding-top: 40px;
+        
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 3fr 1fr 1fr;
+        grid-template-areas:
+        "dices dices dices"
+        "btn-roll btn-new btn-hold"
+        "btn-roll trgt btn-hold"
+
+
+    }
+
+    .dices {
+        grid-area: dices;
+        padding: 20px;
+        padding-bottom: 50px;
+    }
+
+    .dice1, .dice2 {
+        width: 60%;
+    }
+
+    .btn-roll {
+        grid-area: btn-roll;
+    }
+
+    .btn-hold {
+        grid-area: btn-hold;
+    }
+
+    .btn-new {
+        grid-area: btn-new;
+
+    }
+
+    #target-score {
+        grid-area: trgt;
+        height: 40%;
+        align-self: center;
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+    .wrapper {
+        padding: 0;
+        height: 100%;
+        grid-template-rows: 35% 65%;
+
+    }
+
+    .player-score {
+        font-size: 64px;
+    }
+
+    .player-0-panel, .player-1-panel {
+        grid-template-rows: auto;
+        padding: 0 20px;
+    }
+
+    .dice1, .dice2 {
+        width: 100px;
+    }
+
+    .player-name {
+        font-size: 20px;
+    }
+
+    .interface {
+        grid-area: interface;
+        padding: 0;
+        padding-top: 20px;
+
+        
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 0.8fr 1fr 0.8fr 0.8fr;
+        grid-template-areas:
+        "dices"
+        "btn-new"
+        "trgt"
+        "btn-hold"
+        "btn-roll"  
+    }
+
+    .dices {
+        padding: 20px;
+        justify-self: stretch;
+    }
+    
+    #target-score {
+        height: 60%;
+    }
+
+    .player-score {
+        padding: 0;
+        align-self: flex-start;
+    }
+
+    .player-current-score {
+        padding: 0;
+    }
+
+    .active .player-name::after {
+        content: "\2022";
+        font-size: 25px;
+
+        
+    }
+
+
+}
